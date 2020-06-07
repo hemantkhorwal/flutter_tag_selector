@@ -1,6 +1,6 @@
 name: fluttertagselector
 description: Flutter package for creating selector tags. The tag contains a Icon and Text and Icon changes to Icons.check when selected.
-version: 0.0.3
+version: 0.1.0
 homepage: https://github.com/hemantkhorwal/flutter_tag_selector
 
 environment:
