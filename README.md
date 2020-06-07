@@ -69,7 +69,6 @@ class Example extends StatelessWidget {
   }
 }
 ```
-![enter image description here](https://github.com/hemantkhorwal/flutter_tag_selector/blob/master/img/ss1.jpg)
 ## Parameter you can use in TagGenrator
 
 | Parameter | Type  |   Use
