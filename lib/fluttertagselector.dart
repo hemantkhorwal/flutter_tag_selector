@@ -8,11 +8,17 @@ class TagGenrator extends StatefulWidget {
   final List<Tags> tagList;
   final bool fillRandomColor;
   final Color fixedColor;
+  final Color iconColor;
+  final double iconSize;
+  final double fontSize;
   TagGenrator(
       {Key key,
       @required this.tagList,
       @required this.fillRandomColor,
-      this.fixedColor})
+      this.fixedColor,
+      this.iconColor,
+      this.iconSize,
+      this.fontSize})
       : assert(
             fillRandomColor == true ||
                 (fillRandomColor == false && fixedColor == null),
@@ -24,27 +30,37 @@ class TagGenrator extends StatefulWidget {
 
 class _TagGenratorState extends State<TagGenrator> {
   List<Tags> tagList;
-  bool isRandomColor;
+  bool fillRandomColor;
   List<String> selectedCategories = new List();
   List<Color> colors;
-  int iconSize = 22;
-  bool randomColor = false;
-  int counter = 0;
+  double iconSize;
+  double fontSize;
+  Color iconColor = Colors.white;
 
   @override
   void initState() {
     super.initState();
     this.tagList = widget.tagList;
-    this.isRandomColor = widget.fillRandomColor;
-    this.colors = getColorList();
+    widget.iconColor == null
+        ? this.iconColor = Colors.white
+        : this.iconColor = widget.iconColor;
+    widget.fontSize == null
+        ? this.fontSize = 16
+        : this.fontSize = widget.fontSize;
+    widget.iconSize == null
+        ? this.iconSize = 22
+        : this.iconSize = widget.iconSize;
 
-    isRandomColor ? randomColorApplyer() : fixedColorApplyer(widget.fixedColor);
+    this.fillRandomColor = widget.fillRandomColor;
+    this.colors = getColorList();
+    fillRandomColor
+        ? randomColorApplyer()
+        : fixedColorApplyer(widget.fixedColor);
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
       margin: const EdgeInsets.only(top: 50),
       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: Wrap(
@@ -84,8 +100,8 @@ class _TagGenratorState extends State<TagGenrator> {
               ),
               child: new Icon(
                 data.getIcon(),
-                color: Colors.white,
-                size: 22,
+                color: iconColor,
+                size: iconSize,
               ),
             ),
           ),
@@ -93,8 +109,10 @@ class _TagGenratorState extends State<TagGenrator> {
             padding: const EdgeInsets.only(left: 5.0, right: 10.0),
             child: Text(
               "${data.getTitle()}",
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: fontSize),
             ),
           ),
         ],
