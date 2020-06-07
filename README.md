@@ -4,6 +4,9 @@ The **fluttertagselector** is a flutter package which you can use to create bubb
 
 You can check it on [pub.dev](https://pub.dev/packages/fluttertagselector)
 
+![fixedColor = Colors.blue](https://github.com/hemantkhorwal/flutter_tag_selector/blob/master/img/ss1.jpg)
+
+![fillRandomColor=true](https://github.com/hemantkhorwal/flutter_tag_selector/blob/master/img/ss2.jpg)
 
 
 # Use this package
@@ -66,7 +69,7 @@ class Example extends StatelessWidget {
   }
 }
 ```
-
+![enter image description here](https://github.com/hemantkhorwal/flutter_tag_selector/blob/master/img/ss1.jpg)
 ## Parameter you can use in TagGenrator
 
 | Parameter | Type  |   Use
