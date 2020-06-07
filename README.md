@@ -6,7 +6,7 @@ You can check it on [pub.dev](https://pub.dev/packages/fluttertagselector)
 
 
 
-# Use this package as a library
+# Use this package
 
 ### 1. Depend on it
 
