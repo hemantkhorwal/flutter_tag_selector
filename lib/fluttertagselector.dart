@@ -20,7 +20,7 @@ class TagGenrator extends StatefulWidget {
       this.iconSize,
       this.fontSize})
       : assert(
-            fillRandomColor == true ||
+            fillRandomColor !=null ||
                 (fillRandomColor == false && fixedColor == null),
             "fixedColor can't be empty.");
 
