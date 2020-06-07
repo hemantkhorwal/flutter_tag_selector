@@ -128,7 +128,7 @@ class _TagGenratorState extends State<TagGenrator> {
       Colors.purpleAccent,
       Colors.pinkAccent,
       Colors.blueGrey,
-      Colors.blueGrey
+      Colors.lightGreen,
     ];
   }
 
