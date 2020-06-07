@@ -1,19 +1,22 @@
 library fluttertagselector;
-import 'dart:math';
 
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:fluttertagselector/tag_class.dart';
-
 
 class TagGenrator extends StatefulWidget {
   final List<Tags> tagList;
   final bool fillRandomColor;
   final Color fixedColor;
-  TagGenrator({ Key key ,
-    @required this.tagList,
-    @required this.fillRandomColor,
-    this.fixedColor
-  }):assert( fillRandomColor == true ||(fillRandomColor == false && fixedColor==null) , "fixedColor can't be empty.");
+  TagGenrator(
+      {Key key,
+      @required this.tagList,
+      @required this.fillRandomColor,
+      this.fixedColor})
+      : assert(
+            fillRandomColor == true ||
+                (fillRandomColor == false && fixedColor == null),
+            "fixedColor can't be empty.");
 
   @override
   _TagGenratorState createState() => _TagGenratorState();
@@ -26,7 +29,7 @@ class _TagGenratorState extends State<TagGenrator> {
   List<Color> colors;
   int iconSize = 22;
   bool randomColor = false;
-  int counter=0;
+  int counter = 0;
 
   @override
   void initState() {
@@ -46,7 +49,7 @@ class _TagGenratorState extends State<TagGenrator> {
           Center(
             child: Container(
               margin: const EdgeInsets.only(top: 50),
-              padding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               child: Wrap(
                 children: tagList.map((e) => _buildTag(e)).toList(),
               ),
@@ -57,22 +60,26 @@ class _TagGenratorState extends State<TagGenrator> {
     );
   }
 
-  Container _buildTag(Tags data){
+  Container _buildTag(Tags data) {
     return Container(
-      margin: const EdgeInsets.only(right: 8.0,bottom: 15.0),
+      margin: const EdgeInsets.only(right: 8.0, bottom: 15.0),
       decoration: BoxDecoration(
         color: data.getColor(),
         borderRadius: BorderRadius.circular(50),
       ),
-      child: Row (
+      child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           GestureDetector(
-            onTap: (){
+            onTap: () {
               setState(() {
                 data.isSlected ? data.isSlected = false : data.isSlected = true;
-                data.isSlected ? selectedCategories.add(data.getTitle()) :  selectedCategories.remove(""+data.getTitle());
-                data.isSlected ? data.tagIcon = Icons.check :data.tagIcon = data.developerDefinedIcon;
+                data.isSlected
+                    ? selectedCategories.add(data.getTitle())
+                    : selectedCategories.remove("" + data.getTitle());
+                data.isSlected
+                    ? data.tagIcon = Icons.check
+                    : data.tagIcon = data.developerDefinedIcon;
               });
             },
             child: AnimatedContainer(
@@ -83,18 +90,18 @@ class _TagGenratorState extends State<TagGenrator> {
                 color: Colors.white60,
               ),
               child: new Icon(
-                data.getIcon(), color: Colors.white, size: 22,
+                data.getIcon(),
+                color: Colors.white,
+                size: 22,
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 5.0 , right: 10.0),
+            padding: const EdgeInsets.only(left: 5.0, right: 10.0),
             child: Text(
               "${data.getTitle()}",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold
-              ),
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
           ),
         ],
@@ -103,32 +110,36 @@ class _TagGenratorState extends State<TagGenrator> {
   }
 
   static List<Color> getColorList() {
-    return  [ Colors.orangeAccent , Colors.redAccent , Colors.lightBlueAccent, Colors.purpleAccent, Colors.pinkAccent, Colors.blueGrey, Colors.blueGrey];
-
+    return [
+      Colors.orangeAccent,
+      Colors.redAccent,
+      Colors.lightBlueAccent,
+      Colors.purpleAccent,
+      Colors.pinkAccent,
+      Colors.blueGrey,
+      Colors.blueGrey
+    ];
   }
 
-  int genrateRandom(int old){
-    int newRandom = new Random().nextInt(colors.length-1);
-    if(old == newRandom ){
+  int genrateRandom(int old) {
+    int newRandom = new Random().nextInt(colors.length - 1);
+    if (old == newRandom) {
       genrateRandom(old);
     }
     return newRandom;
   }
 
-  void randomColorApplyer(){
-    int temp = colors.length+1;
-    for ( int i =0; i<=tagList.length-1 ; i++){
+  void randomColorApplyer() {
+    int temp = colors.length + 1;
+    for (int i = 0; i <= tagList.length - 1; i++) {
       temp = genrateRandom(temp);
       tagList[i].setTagColor(colors[temp]);
     }
   }
 
   fixedColorApplyer(Color fixedColor) {
-    for ( int i =0; i<=tagList.length-1 ; i++){
+    for (int i = 0; i <= tagList.length - 1; i++) {
       tagList[i].setTagColor(fixedColor);
     }
   }
-
-
 }
-

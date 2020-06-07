@@ -27,7 +27,7 @@ class Tags {
     return tagIcon;
   }
 
-  Tags(@required this.tagTitle, @required this.developerDefinedIcon)
+  Tags(this.tagTitle, this.developerDefinedIcon)
       :assert (tagTitle!=null && developerDefinedIcon!=null);
 
 }

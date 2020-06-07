@@ -1,8 +1,7 @@
 name: fluttertagselector
 description: Flutter package for creating selector tags.
 version: 0.0.1
-author: Hemant Khorwal <hemantkhorwalhk@gmail.com>
-homepage:
+homepage: https://github.com/hemantkhorwal/flutter_tag_selector
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
