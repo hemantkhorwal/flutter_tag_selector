@@ -18,7 +18,7 @@ Add this to your package's pubspec.yaml file:
 ```yaml
 
 dependencies:
-  fluttertagselector: ^0.0.3
+  fluttertagselector: ^0.1.0
 
 
 ```
