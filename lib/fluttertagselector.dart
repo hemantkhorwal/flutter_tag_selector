@@ -43,19 +43,12 @@ class _TagGenratorState extends State<TagGenrator> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Center(
-            child: Container(
-              margin: const EdgeInsets.only(top: 50),
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              child: Wrap(
-                children: tagList.map((e) => _buildTag(e)).toList(),
-              ),
-            ),
-          ),
-        ],
+    return Container(
+      color: Colors.blue,
+      margin: const EdgeInsets.only(top: 50),
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+      child: Wrap(
+        children: tagList.map((e) => _buildTag(e)).toList(),
       ),
     );
   }
