@@ -8,26 +8,23 @@ class Tags {
   bool isSlected = false;
   Color tagColor;
 
-
-  String getTitle(){
+  String getTitle() {
     return tagTitle;
   }
 
-  setTagColor(Color c){
-    this.tagColor =c ;
+  setTagColor(Color c) {
+    this.tagColor = c;
   }
 
-  Color getColor(){
+  Color getColor() {
     return tagColor;
   }
 
-  IconData getIcon(){
-    if(tagIcon == null)
-      tagIcon = developerDefinedIcon;
+  IconData getIcon() {
+    if (tagIcon == null) tagIcon = developerDefinedIcon;
     return tagIcon;
   }
 
   Tags(this.tagTitle, this.developerDefinedIcon)
-      :assert (tagTitle!=null && developerDefinedIcon!=null);
-
+      : assert(tagTitle != null && developerDefinedIcon != null);
 }
